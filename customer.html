@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Customer Details Form</title>
+   
+</head>
+<body>
+    <h1>Customer Details Form</h1>
+    <form method="POST">
+        <label for="CustName">Customer Name:</label>
+        <input type="text" id="CustName" name="CustName" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="MobNo">Mobile Number:</label>
+        <input type="text" id="MobNo" name="MobNo" required><br><br>
+        
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea><br><br>
+        
+        <label for="pincode">Pincode:</label>
+        <input type="text" id="pincode" name="pincode" required><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if customer_list %}
+    <h2>Submitted Customer Details:</h2>
+    <table>
+        <tr>
+            <th>Customer Name</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Address</th>
+            <th>Pincode</th>
+        </tr>
+     {% for customer in customer_list %}
+        <tr>
+            <td>{{ customer.CustName }}</td>
+            <td>{{ customer.Email }}</td>
+            <td>{{ customer.MobNo }}</td>
+            <td>{{ customer.Address }}</td>
+            <td>{{ customer.Pincode }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
